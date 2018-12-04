@@ -1,3 +1,12 @@
+language: python
+
+python:
+  - "3.7"
+
+install:
+  - pip install pipenv
+  - pipenv sync --dev
+
 services:
   - postgresql
 
@@ -13,3 +22,5 @@ addons:
 env:
   global:
   - PGPORT=5433
+
+script: pytest
