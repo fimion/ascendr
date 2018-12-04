@@ -5,7 +5,7 @@ python:
 
 install:
   - pip install pipenv
-  - pipenv sync --dev
+  - pipenv install --dev
 
 services:
   - postgresql
@@ -22,6 +22,5 @@ addons:
 env:
   global:
   - PGPORT=5433
-  - PIPENV_DONT_USE_PYENV=TRUE
 
-script: pytest
+script: pipenv run pytest
