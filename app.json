@@ -1,0 +1,54 @@
+{
+  "name": "Ascendr Backend",
+  "description": " blogging service to pick up those tumbling away from others",
+  "keywords": [
+  ],
+  "website": "https://ascendr.net/",
+  "repository": "https://github.com/fimion/ascendr-backend",
+  "logo": "",
+  "success_url": "/admin",
+  "scripts": {
+    "postdeploy": "python manage.py migrate"
+  },
+  "env": {
+    "DJANGO_SECRET": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+    "WEB_CONCURRENCY": {
+      "description": "The number of processes to run.",
+      "value": "4"
+    },
+    "IS_HEROKU": {
+      "description": "use the django_heroku config",
+      "value": "True"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "image": "heroku/python",
+  "addons": [
+    {
+      "plan": "heroku-postgresql:hobby-dev",
+      "options": {
+        "version": "9.5"
+      }
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "pytest"
+      }
+    }
+  }
+}
