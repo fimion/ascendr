@@ -22,6 +22,10 @@
     "IS_HEROKU": {
       "description": "use the django_heroku config",
       "value": "True"
+    },
+    "DISABLE_COLLECTSTATIC":{
+      "description": "disables the collectstatic step of the buildpack",
+      "value": "1"
     }
   },
   "formation": {
